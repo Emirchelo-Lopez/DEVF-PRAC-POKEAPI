@@ -11,38 +11,64 @@
     />
   </head>
   <body>
+    <nav id="top-bar">
+      <a href="./index.html"
+        ><img
+          src="https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png"
+          alt=""
+      /></a>
+      <div id="search-container">
+        <input id="search-input" type="text" />
+        <button id="search-btn">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="36"
+            height="36"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#fdfdfd"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+      </div>
+    </nav>
     <nav id="pagination">
-    <a href="#" id="prev-btn" aria-label="Previous">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="36"
-        height="36"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="#fdfdfd"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      >
-        <path d="M15 18l-6-6 6-6" />
-      </svg>
-    </a>
-    <span id="page-number">1</span>
-    <a href="#" id="next-btn" aria-label="Next">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="36"
-        height="36"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="#fdfdfd"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      >
-        <path d="M9 18l6-6-6-6" />
-      </svg>
-    </a>
+      <a href="#" id="prev-btn" aria-label="Previous">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="36"
+          height="36"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="#fdfdfd"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M15 18l-6-6 6-6" />
+        </svg>
+      </a>
+      <span id="page-number">1</span>
+      <a href="#" id="next-btn" aria-label="Next">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="36"
+          height="36"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="#fdfdfd"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M9 18l6-6-6-6" />
+        </svg>
+      </a>
     </nav>
     <div class="cards_container"></div>
 

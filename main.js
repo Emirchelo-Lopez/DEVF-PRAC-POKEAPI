@@ -3,8 +3,10 @@ const cardsContainer = document.querySelector(".cards_container");
 const previousBtn = document.querySelector("#prev-btn");
 const pageNum = document.querySelector("#page-number");
 const nextBtn = document.querySelector("#next-btn");
+const searchInput = document.querySelector("#search-input");
+const searchBtn = document.querySelector("#search-btn");
 
-const getPokemon = async (url) => {
+const getPokemons = async (url) => {
   try {
     const res = await fetch(url);
     if (!res.ok) {
@@ -19,7 +21,12 @@ const getPokemon = async (url) => {
       createCard(poke);
     });
   } catch (error) {
-    console.log(error.message);
+    cardsContainer.innerHTML = `
+      <div class="error">
+        <h2>Pokemon not found</h2>
+        <img src="https://media.giphy.com/media/3o7aD2sa4v6j0g5x8I/giphy.gif" alt="error" />
+      </div>
+      `;
   }
 };
 
@@ -32,6 +39,14 @@ function createCard(pokemon) {
   );
   pokeAbs = pokeAbs.join("");
 
+
+  let pokeId = pokemon.id.toString();
+  if(pokeId.length === 1) {
+    pokeId = "00" + pokeId;
+  } else if(pokeId.length === 2) {
+    pokeId = "0" + pokeId;
+  }
+
   const div = document.createElement("div");
   div.classList.add("card");
   div.innerHTML = `
@@ -40,7 +55,7 @@ function createCard(pokemon) {
           alt="Bulbasur"
           class="card_image"
         />
-        <h3 class="poke_num">#${pokemon.id}</h3>
+        <h3 class="poke_num">#${pokeId}</h3>
         <h2 class="poke_name">${pokemon.name}</h2>
         <div class="card_characteristics">
           <div class="card_characteristic">
@@ -72,7 +87,7 @@ function clearCards() {
 
 function getPokeCleared(url) {
   clearCards();
-  getPokemon(url);
+  getPokemons(url);
 }
 
 function pagination() {
@@ -100,4 +115,42 @@ function pagination() {
   // Initial load
   getPokeCleared(`${URL}?offset=${offset}&limit=20`);
 }
+
+async function getOnePoke(url) {
+  try {
+    const res = await fetch(url);
+    if (!res.ok) {
+      throw Error("Check your code bro");
+    }
+
+    const data = await res.json();
+    createCard(data);
+  } catch (error) {
+    cardsContainer.innerHTML = `
+      <div class="error">
+        <h2>Pokemon not found</h2>
+        <img src="https://media.giphy.com/media/3o7aD2sa4v6j0g5x8I/giphy.gif" alt="error" />
+      </div>
+      `;
+  }
+}
+
+function searchPokemon() {
+  const searchValue = searchInput.value.toLowerCase();
+  searchInput.value = "";
+  clearCards();
+  if (searchValue === "") {
+    getPokeCleared(`${URL}?offset=0&limit=20`);
+  } else {
+    getOnePoke(`${URL}/${searchValue}`);
+  }
+}
+
+searchBtn.addEventListener("click", searchPokemon);
+searchInput.addEventListener("keypress", (e) => {
+  if (e.key === "Enter") {
+    searchPokemon();
+  }
+});
+
 pagination();
