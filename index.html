@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pokedex</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      href="https://api.fontshare.com/v2/css?f[]=satoshi@300,301,400,401,500,501,700,701,900,901&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav id="pagination">
+    <a href="#" id="prev-btn" aria-label="Previous">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="36"
+        height="36"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="#fdfdfd"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M15 18l-6-6 6-6" />
+      </svg>
+    </a>
+    <span id="page-number">1</span>
+    <a href="#" id="next-btn" aria-label="Next">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="36"
+        height="36"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="#fdfdfd"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M9 18l6-6-6-6" />
+      </svg>
+    </a>
+    </nav>
+    <div class="cards_container"></div>
+
+    <script src="./main.js"></script>
+  </body>
+</html>
