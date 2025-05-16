@@ -39,22 +39,23 @@ function createCard(pokemon) {
   );
   pokeAbs = pokeAbs.join("");
 
-
   let pokeId = pokemon.id.toString();
-  if(pokeId.length === 1) {
+  if (pokeId.length === 1) {
     pokeId = "00" + pokeId;
-  } else if(pokeId.length === 2) {
+  } else if (pokeId.length === 2) {
     pokeId = "0" + pokeId;
   }
 
   const div = document.createElement("div");
   div.classList.add("card");
   div.innerHTML = `
-        <img
-          src="${pokemon.sprites.front_default}"
-          alt="Bulbasur"
-          class="card_image"
-        />
+        <div class="container_card_image">
+          <img
+            src="${pokemon.sprites.other["dream_world"].front_default}"
+            alt="${pokemon.name}"
+            class="card_image"
+          />
+        </div>
         <h3 class="poke_num">#${pokeId}</h3>
         <h2 class="poke_name">${pokemon.name}</h2>
         <div class="card_characteristics">
@@ -79,6 +80,17 @@ function createCard(pokemon) {
           </div>
         </div>`;
   cardsContainer.append(div);
+
+  let mainType = "";
+
+  // Check if 'pokemon.types' exists and has at least one type
+  if (pokemon.types && pokemon.types.length > 0) {
+    // Get the name of the first type
+    mainType = pokemon.types[0].type.name;
+  }
+  if (mainType) {
+    div.classList.add(mainType);
+  }
 }
 
 function clearCards() {
