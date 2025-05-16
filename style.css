@@ -19,7 +19,7 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(0px, 520px));
   gap: 24px;
-  padding-bottom: 100px;
+  padding-bottom: 40px;
   justify-content: center;
 }
 
@@ -34,11 +34,6 @@ body {
   transition: all 0.4s ease-in-out;
 }
 
-.card:hover {
-  opacity: 0.9;
-  transform: scale(1.01);
-}
-
 .container_card_image {
   align-self: center;
   display: flex;
@@ -47,7 +42,6 @@ body {
   width: 400px;
   height: 200px;
   padding: 8px;
-  
 }
 
 .card_image {
@@ -217,55 +211,55 @@ h2 {
 }
 
 .normal {
-  background-color: #A8A77A;
+  background-color: #a8a77a;
 }
 
 .grass {
-  background-color: #7AC74C;
+  background-color: #7ac74c;
 }
 
 .fire {
-  background-color: #EE8130;
+  background-color: #ee8130;
 }
 
 .water {
-  background-color: #6390F0;
+  background-color: #6390f0;
 }
 
 .electric {
-  background-color: #F7D02C;
+  background-color: #f7d02c;
 }
 
 .ice {
-  background-color: #96D9D6;
+  background-color: #96d9d6;
 }
 
 .fighting {
-  background-color: #C22E28;
+  background-color: #c22e28;
 }
 
 .poison {
-  background-color: #A33EA1;
+  background-color: #a33ea1;
 }
 
 .ground {
-  background-color: #E2BF65;
+  background-color: #e2bf65;
 }
 
 .flying {
-  background-color: #A98FF3;
+  background-color: #a98ff3;
 }
 
 .psychic {
-  background-color: #F95587;
+  background-color: #f95587;
 }
 
 .bug {
-  background-color: #A6B91A;
+  background-color: #a6b91a;
 }
 
 .rock {
-  background-color: #B6A136;
+  background-color: #b6a136;
 }
 
 .ghost {
@@ -273,7 +267,7 @@ h2 {
 }
 
 .dragon {
-  background-color: #6F35FC;
+  background-color: #6f35fc;
 }
 
 .dark {
@@ -281,11 +275,11 @@ h2 {
 }
 
 .steel {
-  background-color: #B7B7CE;
+  background-color: #b7b7ce;
 }
 
 .fairy {
-  background-color: #D685AD;
+  background-color: #d685ad;
 }
 
 @media (max-width: 390px) {
@@ -344,5 +338,33 @@ h2 {
 
   .card_characteristic2 h4 {
     font-size: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  #top-bar {
+    width: auto;
+    padding: 12px 12px;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 12px;
+  }
+
+  body {
+    height: auto;
+    padding: 200px 12px 100px 12px;
+  }
+
+  .cards_container {
+    width: auto;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+}
+
+@media (min-width: 1280px) {
+  .card:hover {
+    opacity: 0.9;
+    transform: scale(1.01);
   }
 }
